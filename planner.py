@@ -6,6 +6,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables.graph import MermaidDrawMethod
 from IPython.display import display, Image
 
+API_KEY = "<API_KEY>"
 class Plannerstate(TypedDict):
     messages : Annotated[List[HumanMessage | AIMessage], "This is the message"]
     city: str
@@ -15,7 +16,7 @@ class Plannerstate(TypedDict):
 from langchain_groq import ChatGroq
 llm = ChatGroq(
     temperature=0,
-    groq_api_key = "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",
+    groq_api_key = API_KEY,
     model_name = "llama-3.3-70b-versatile")
 itinerary_prompt = ChatPromptTemplate.from_messages(
     [("system","you are a helpful travel assistant.create a day trip for itinerary for {city} based on user's interests:{interests}. provide a brief bulleted itinerary"),("human","create an itinerary for my day trip")]
@@ -96,7 +97,7 @@ from langchain_groq import ChatGroq
 
 llm = ChatGroq(
     temperature=0,
-    groq_api_key = "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",
+    groq_api_key = API_KEY,
     model_name = "llama-3.3-70b-versatile")
 itinerary_prompt = ChatPromptTemplate.from_messages(
     [("system","you are a helpful travel assistant.create a day trip for itinerary for {city} based on user's interests:{interests}. provide a brief bulleted itinerary"),("human","create an itinerary for my day trip")]
